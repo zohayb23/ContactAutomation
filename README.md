@@ -4,7 +4,7 @@ Automated email distribution system for sending personalized beat packs to artis
 
 ## 🎯 Project Status
 
-**Current Phase**: Core Services Development  
+**Current Phase**: Core Services Development
 **Completion**: ~30% (Setup & Authentication Complete)
 
 ### ✅ Completed
@@ -137,6 +137,7 @@ python main.py show-history
 
 ## Documentation
 
+- **[Next Steps](NEXT_STEPS.md)** ⭐ - **Start here when returning to the project!**
 - [System Design](SYSTEM_DESIGN.md) - Complete architecture and design
 - [Implementation Plan](IMPLEMENTATION_PLAN.md) - Step-by-step development plan
 - [Google Cloud Setup Guide](docs/GOOGLE_CLOUD_SETUP.md) - Detailed OAuth setup
