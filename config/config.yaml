@@ -1,0 +1,42 @@
+# Contact Automation System Configuration
+
+# Google Drive Settings
+drive:
+  vault_folder_id: ""  # Will be set via .env or manually
+  scopes:
+    - https://www.googleapis.com/auth/drive.readonly
+    - https://www.googleapis.com/auth/drive.metadata.readonly
+
+# Gmail Settings
+gmail:
+  scopes:
+    - https://www.googleapis.com/auth/gmail.send
+  rate_limit_delay: 2  # seconds between emails
+  batch_pause: 30  # seconds pause every 10 emails
+
+# Beat Selection Settings
+beats:
+  min_beats_per_email: 3
+  max_beats_per_email: 5
+  duplicate_prevention_days: 30
+
+# Email Settings
+email:
+  subject_template: "Exclusive Beat pack #{pack_number}"
+  template_path: "templates/email_template.txt"
+  agreement_path: "templates/beat_usage_agreement.txt"
+
+# Database Settings
+database:
+  path: "database/history.db"
+
+# Logging Settings
+logging:
+  level: "INFO"
+  file: "logs/app.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+
+
+
+
