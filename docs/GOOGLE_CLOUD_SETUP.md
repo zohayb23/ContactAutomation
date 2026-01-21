@@ -105,7 +105,6 @@ You need the ID of your Google Drive "vault" folder.
    ```
 4. Copy the `FOLDER_ID_HERE` part (long string of letters and numbers)
 5. Save this for the next step
-
 ---
 
 ## Step 8: Update Configuration
@@ -205,8 +204,3 @@ After completing this setup:
 ---
 
 Once you've completed all steps, let me know and we'll proceed with testing the authentication!
-
-
-
-
-

@@ -1,8 +1,3 @@
 """
 Utility functions
 """
-
-
-
-
-

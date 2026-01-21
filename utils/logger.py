@@ -59,8 +59,3 @@ def setup_logger(name: str, log_file: str = "logs/app.log", level: str = "INFO")
     logger.addHandler(console_handler)
 
     return logger
-
-
-
-
-

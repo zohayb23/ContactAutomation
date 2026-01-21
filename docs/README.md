@@ -11,8 +11,3 @@ This folder contains setup guides and documentation for the Contact Automation S
 - [Google Cloud Console](https://console.cloud.google.com/)
 - [Google Drive API Documentation](https://developers.google.com/drive/api/v3/about-sdk)
 - [Gmail API Documentation](https://developers.google.com/gmail/api/guides)
-
-
-
-
-
