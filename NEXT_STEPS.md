@@ -1,6 +1,6 @@
 # Next Steps - Contact Automation System
 
-**Last Updated**: After initial setup and OAuth authentication completion  
+**Last Updated**: After initial setup and OAuth authentication completion
 **Current Status**: ~30% Complete - Ready to build core services
 
 ---
@@ -57,7 +57,7 @@
    - Use `drive.files().get_media()` API
    - Save to temp directory or return bytes
 
-**Reference**: 
+**Reference**:
 - Vault folder ID: `1D6pBAI4IDpicvLzLo9_R0qknn4y8DjCb` (in config.yaml)
 - Use `services/auth_service.py` as reference for authentication
 
@@ -247,23 +247,58 @@ You'll know you're done when:
    # venv\Scripts\activate  # if using virtual environment
    ```
 
-2. **Verify authentication**:
+2. **Install development dependencies**:
+   ```bash
+   pip install -r requirements-dev.txt
+   pre-commit install  # Set up pre-commit hooks
+   ```
+
+3. **Verify authentication**:
    ```bash
    python main.py configure
    ```
    (Should work without re-authenticating if token is still valid)
 
-3. **Start with Database Service**:
+4. **Create feature branch**:
+   ```bash
+   git checkout develop
+   git pull origin develop
+   git checkout -b feature/database-service
+   ```
+
+5. **Start with Database Service**:
    - Open `services/database_service.py`
    - Implement SQLite schema
-   - Test table creation
+   - Write tests in `tests/unit/test_database_service.py`
+   - Run: `pytest tests/unit/test_database_service.py`
+   - Commit: `git commit -m "feat(database): Add SQLite schema"`
 
-4. **Then Google Drive Service**:
+6. **Then Google Drive Service**:
    - Open `services/google_drive_service.py`
    - Use `auth_service.py` as reference for authentication
+   - Write tests
    - Test fetching artists
 
-5. **Continue in order** through the priority list above
+7. **Continue in order** through the priority list above
+
+8. **Before committing**:
+   ```bash
+   # Format code
+   black .
+   isort .
+   
+   # Run tests
+   pytest
+   
+   # Check linting
+   flake8 .
+   ```
+
+9. **Create Pull Request**:
+   - Push branch: `git push origin feature/database-service`
+   - Create PR on GitHub
+   - Fill out PR template
+   - Request review
 
 ---
 
@@ -289,4 +324,3 @@ You'll know you're done when:
 ---
 
 **Good luck! You've got a solid foundation - now it's time to build the core functionality! 🎵**
-

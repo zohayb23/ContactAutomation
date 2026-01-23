@@ -138,12 +138,29 @@ python main.py show-history
 ## Documentation
 
 - **[Next Steps](NEXT_STEPS.md)** ⭐ - **Start here when returning to the project!**
+- [Contributing Guidelines](CONTRIBUTING.md) - Development workflow and standards
+- [SDLC Practices](docs/SDLC.md) - Software Development Life Cycle
+- [GitHub Best Practices](docs/GITHUB_BEST_PRACTICES.md) - Git workflow and PR process
 - [System Design](SYSTEM_DESIGN.md) - Complete architecture and design
 - [Implementation Plan](IMPLEMENTATION_PLAN.md) - Step-by-step development plan
 - [Google Cloud Setup Guide](docs/GOOGLE_CLOUD_SETUP.md) - Detailed OAuth setup
 - [OAuth Troubleshooting](docs/OAUTH_FIX.md) - Fix common OAuth issues
+- [Changelog](CHANGELOG.md) - Version history
 
-## Development
+## Development Standards
+
+This project follows industry best practices:
+
+- ✅ **SDLC**: Complete software development life cycle
+- ✅ **Git Flow**: Feature branches, code reviews, PR process
+- ✅ **Conventional Commits**: Standardized commit messages
+- ✅ **Code Quality**: Black, Flake8, MyPy, Pytest
+- ✅ **CI/CD**: GitHub Actions for automated testing
+- ✅ **Pre-commit Hooks**: Code quality checks before commit
+- ✅ **Documentation**: Comprehensive docs and docstrings
+- ✅ **Testing**: Unit, integration, and E2E tests
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow.
 
 ### Project Structure
 
