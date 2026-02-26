@@ -115,13 +115,13 @@ from pathlib import Path
 def get_artists_from_drive(folder_id: str) -> List[dict]:
     """
     Fetch artist list from Google Drive folder.
-    
+
     Args:
         folder_id: Google Drive folder ID
-        
+
     Returns:
         List of dictionaries with 'name' and 'email' keys
-        
+
     Raises:
         GoogleAPIError: If API call fails
     """

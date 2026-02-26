@@ -12,7 +12,7 @@ class TestBeatParser:
         """Test parsing a valid filename."""
         filename = "@zobi - tundra - 136 - Cmin - travis.mp3"
         result = BeatParser.parse_filename(filename)
-        
+
         assert result is not None
         assert result['producer'] == 'zobi'
         assert result['beat_name'] == 'tundra'
@@ -25,7 +25,7 @@ class TestBeatParser:
         """Test parsing filename with spaces in beat name."""
         filename = "@zobi - canary diamonds - 125 - Dmaj - gunna.wav"
         result = BeatParser.parse_filename(filename)
-        
+
         assert result is not None
         assert result['beat_name'] == 'canary diamonds'
         assert result['bpm'] == '125'
@@ -37,7 +37,7 @@ class TestBeatParser:
         """Test parsing filename with special characters in key."""
         filename = "@zobi - splash - 116 - F#min - afrobeat.mp3"
         result = BeatParser.parse_filename(filename)
-        
+
         assert result is not None
         assert result['beat_name'] == 'splash'
         assert result['key'] == 'F#min'
@@ -47,14 +47,14 @@ class TestBeatParser:
         """Test parsing an invalid filename."""
         filename = "invalid_filename.mp3"
         result = BeatParser.parse_filename(filename)
-        
+
         assert result is None
 
     def test_parse_filename_missing_parts(self):
         """Test parsing filename with missing parts."""
         filename = "@zobi - beat.mp3"
         result = BeatParser.parse_filename(filename)
-        
+
         assert result is None
 
     def test_parse_bpm_valid(self):
@@ -91,9 +91,9 @@ class TestBeatParser:
             "@zobi - hope - 75 - Cmin - future.mp3",
             "invalid.mp3"
         ]
-        
+
         results = BeatParser.batch_parse(filenames)
-        
+
         assert len(results) == 3
         assert results[filenames[0]] is not None
         assert results[filenames[1]] is not None
@@ -103,7 +103,7 @@ class TestBeatParser:
         """Test that parsing is case-insensitive."""
         filename = "@ZOBI - TUNDRA - 136 - CMIN - TRAVIS.MP3"
         result = BeatParser.parse_filename(filename)
-        
+
         assert result is not None
         assert result['producer'].lower() == 'zobi'
         assert result['file_type'] == 'mp3'

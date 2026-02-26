@@ -18,7 +18,7 @@ def mock_credentials():
 def mock_drive_service():
     """Mock Google Drive service."""
     service = Mock()
-    
+
     # Mock permissions list
     permissions_mock = Mock()
     permissions_mock.list.return_value.execute.return_value = {
@@ -38,7 +38,7 @@ def mock_drive_service():
         ]
     }
     service.permissions.return_value = permissions_mock
-    
+
     # Mock files list
     files_mock = Mock()
     files_mock.list.return_value.execute.return_value = {
@@ -60,7 +60,7 @@ def mock_drive_service():
         ]
     }
     service.files.return_value = files_mock
-    
+
     return service
 
 
@@ -70,10 +70,10 @@ def test_get_folder_permissions(mock_build, mock_get_creds, mock_credentials, mo
     """Test getting folder permissions (artists)."""
     mock_get_creds.return_value = mock_credentials
     mock_build.return_value = mock_drive_service
-    
+
     service = GoogleDriveService(vault_folder_id='test_folder_id')
     artists = service.get_folder_permissions()
-    
+
     assert len(artists) == 2
     assert artists[0]['email'] == 'artist1@example.com'
     assert artists[0]['name'] == 'Artist One'
@@ -87,10 +87,10 @@ def test_list_beat_files(mock_build, mock_get_creds, mock_credentials, mock_driv
     """Test listing beat files."""
     mock_get_creds.return_value = mock_credentials
     mock_build.return_value = mock_drive_service
-    
+
     service = GoogleDriveService(vault_folder_id='test_folder_id')
     beats = service.list_beat_files()
-    
+
     assert len(beats) == 2
     assert beats[0]['name'] == 'beat1.mp3'
     assert beats[0]['id'] == 'file1'
@@ -103,7 +103,7 @@ def test_verify_folder_access(mock_build, mock_get_creds, mock_credentials, mock
     """Test verifying folder access."""
     mock_get_creds.return_value = mock_credentials
     mock_build.return_value = mock_drive_service
-    
+
     # Mock folder get
     folder_mock = Mock()
     folder_mock.get.return_value.execute.return_value = {
@@ -111,8 +111,8 @@ def test_verify_folder_access(mock_build, mock_get_creds, mock_credentials, mock
         'name': 'vault'
     }
     mock_drive_service.files.return_value = folder_mock
-    
+
     service = GoogleDriveService(vault_folder_id='test_folder_id')
     result = service.verify_folder_access()
-    
+
     assert result is True

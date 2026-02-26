@@ -8,18 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Project structure and configuration
-- OAuth authentication service
-- CLI framework with configure command
-- Comprehensive documentation
+- Beat Selection Service (random 3-5 beats, 30-day duplicate prevention)
+- Email Template Service (placeholder replacement)
+- Gmail Service (send with attachments, rate limiting)
+- Full CLI: list-artists, send-beats (with --dry-run), show-history
+- Unit tests for beat selection and email template (33 tests total)
+- Database schema documentation (docs/DATABASE_SCHEMA.md)
 
 ### Changed
-
-### Deprecated
-
-### Removed
+- main.py: full send-beats workflow (fetch artists/beats, select, email, log)
+- README: project status 100% complete
 
 ### Fixed
+- database_service.py: context manager __enter__/__exit__ syntax
 
 ### Security
 

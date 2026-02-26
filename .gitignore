@@ -37,9 +37,10 @@ ENV/
 .env
 .env.local
 
-# Google API Credentials
+# Google API Credentials & user-specific config
 config/credentials.json
 config/token.json
+config/config.yaml
 *.json
 !package.json
 !package-lock.json

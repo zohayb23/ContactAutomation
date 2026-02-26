@@ -23,12 +23,12 @@ class BeatParser:
     def parse_filename(filename: str) -> Optional[Dict[str, str]]:
         """
         Parse beat filename and extract metadata.
-        
+
         Expected format: @zobi - [Beat Name] - [BPM] - [Key] - [Artist/Style].mp3
-        
+
         Args:
             filename: Beat filename (e.g., "@zobi - tundra - 136 - Cmin - travis.mp3")
-            
+
         Returns:
             Dictionary with parsed metadata:
             - producer: Producer name (e.g., "zobi")
@@ -37,9 +37,9 @@ class BeatParser:
             - key: Musical key (e.g., "Cmin")
             - style_category: Style/artist category (e.g., "travis")
             - file_type: File extension (e.g., "mp3")
-            
+
             Returns None if filename doesn't match pattern
-            
+
         Examples:
             >>> BeatParser.parse_filename("@zobi - tundra - 136 - Cmin - travis.mp3")
             {
@@ -52,13 +52,13 @@ class BeatParser:
             }
         """
         match = BeatParser.FILENAME_PATTERN.match(filename.strip())
-        
+
         if not match:
             logger.warning(f"Filename doesn't match pattern: {filename}")
             return None
-        
+
         groups = match.groups()
-        
+
         result = {
             'producer': groups[0].strip(),
             'beat_name': groups[1].strip(),
@@ -67,7 +67,7 @@ class BeatParser:
             'style_category': groups[4].strip(),
             'file_type': groups[5].strip().lower()
         }
-        
+
         logger.debug(f"Parsed filename '{filename}': {result}")
         return result
 
@@ -75,10 +75,10 @@ class BeatParser:
     def parse_bpm(bpm_str: str) -> Optional[int]:
         """
         Convert BPM string to integer.
-        
+
         Args:
             bpm_str: BPM as string
-            
+
         Returns:
             BPM as integer, or None if invalid
         """
@@ -93,17 +93,17 @@ class BeatParser:
         """
         Extract beat name from filename, even if pattern doesn't match.
         Falls back to filename without extension.
-        
+
         Args:
             filename: Beat filename
-            
+
         Returns:
             Beat name (best guess)
         """
         parsed = BeatParser.parse_filename(filename)
         if parsed:
             return parsed['beat_name']
-        
+
         # Fallback: remove extension
         return Path(filename).stem
 
@@ -111,10 +111,10 @@ class BeatParser:
     def is_valid_beat_file(filename: str) -> bool:
         """
         Check if filename appears to be a valid beat file.
-        
+
         Args:
             filename: Filename to check
-            
+
         Returns:
             True if filename matches expected pattern
         """
@@ -124,10 +124,10 @@ class BeatParser:
     def batch_parse(filenames: list[str]) -> Dict[str, Optional[Dict[str, str]]]:
         """
         Parse multiple filenames at once.
-        
+
         Args:
             filenames: List of filenames to parse
-            
+
         Returns:
             Dictionary mapping filename to parsed metadata (or None if invalid)
         """

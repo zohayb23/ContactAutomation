@@ -1,8 +1,9 @@
 # Contact Automation System Configuration
+# Copy this file to config.yaml and set your vault folder ID.
 
 # Google Drive Settings
 drive:
-  vault_folder_id: "1D6pBAI4IDpicvLzLo9_R0qknn4y8DjCb" # Will be set via .env or manually
+  vault_folder_id: "YOUR_VAULT_FOLDER_ID_HERE"  # From Google Drive folder URL
   scopes:
     - https://www.googleapis.com/auth/drive.readonly
     - https://www.googleapis.com/auth/drive.metadata.readonly
@@ -11,8 +12,8 @@ drive:
 gmail:
   scopes:
     - https://www.googleapis.com/auth/gmail.send
-  rate_limit_delay: 2 # seconds between emails
-  batch_pause: 30 # seconds pause every 10 emails
+  rate_limit_delay: 2  # seconds between emails
+  batch_pause: 30      # seconds pause every 10 emails
 
 # Beat Selection Settings
 beats:
