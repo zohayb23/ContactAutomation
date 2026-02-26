@@ -16,7 +16,7 @@ pytest-cov==6.0.0
 pytest-mock==3.14.0
 
 # Pre-commit hooks
-pre-commit==4.0.1
+pre-commit==4.5.1
 
 # Type checking
 types-PyYAML==6.0.12.20240917
