@@ -125,13 +125,13 @@ Example: run the task on the first Friday of every month at 10:00 AM.
 # Configure Google API authentication
 python main.py configure
 
-# List all artists (coming soon)
+# List all artists
 python main.py list-artists
 
-# Send beats to all artists (coming soon)
+# Send beats to all artists
 python main.py send-beats
 
-# View sending history (coming soon)
+# View sending history
 python main.py show-history
 ```
 
@@ -150,19 +150,6 @@ python main.py show-history
 - **Share the project** – Push to GitHub (see below); use the LinkedIn/Discord copy in [docs/SEND_FREQUENCY_AND_MARKETING.md](docs/SEND_FREQUENCY_AND_MARKETING.md) to promote it.
 - **Extend the app** – Add new CLI commands, support more email templates, or integrate with other tools (e.g. analytics, CRM).
 
-## Push to GitHub
-
-Your repo is already linked to `origin`. To push your latest work:
-
-```bash
-git add .
-git status   # Confirm config.yaml, credentials.json, token.json are NOT listed
-git commit -m "feat: complete Contact Automation - send beat packs, scheduling, docs"
-git push origin main
-```
-
-If you're on another branch (e.g. `feature/database-service`), merge into `main` first or push that branch and open a Pull Request. Your local `config/config.yaml`, `config/credentials.json`, and `config/token.json` are gitignored and will not be pushed.
-
 ## Requirements
 
 - Python 3.8+
@@ -173,52 +160,32 @@ If you're on another branch (e.g. `feature/database-service`), merge into `main`
 
 ## Documentation
 
-- **[Next Steps](NEXT_STEPS.md)** ⭐ - **Start here when returning to the project!**
-- [Contributing Guidelines](CONTRIBUTING.md) - Development workflow and standards
-- [SDLC Practices](docs/SDLC.md) - Software Development Life Cycle
-- [GitHub Best Practices](docs/GITHUB_BEST_PRACTICES.md) - Git workflow and PR process
-- [System Design](SYSTEM_DESIGN.md) - Complete architecture and design
-- [Implementation Plan](IMPLEMENTATION_PLAN.md) - Step-by-step development plan
-- [Google Cloud Setup Guide](docs/GOOGLE_CLOUD_SETUP.md) - Detailed OAuth setup
-- [OAuth Troubleshooting](docs/OAUTH_FIX.md) - Fix common OAuth issues
-- [Scheduling Beat Packs](docs/SCHEDULING.md) - Windows Task Scheduler setup
-- [Changelog](CHANGELOG.md) - Version history
+| Doc | Description |
+|-----|-------------|
+| [Google Cloud Setup](docs/GOOGLE_CLOUD_SETUP.md) | OAuth and API setup |
+| [OAuth Troubleshooting](docs/OAUTH_FIX.md) | Fix common auth issues |
+| [Scheduling](docs/SCHEDULING.md) | Windows Task Scheduler |
+| [Send frequency & marketing](docs/SEND_FREQUENCY_AND_MARKETING.md) | Cadence and Discord/LinkedIn copy |
+| [System Design](SYSTEM_DESIGN.md) | Architecture |
+| [Changelog](CHANGELOG.md) | Version history |
 
-## Development Standards
+## Development
 
-This project follows industry best practices:
-
-- ✅ **SDLC**: Complete software development life cycle
-- ✅ **Git Flow**: Feature branches, code reviews, PR process
-- ✅ **Conventional Commits**: Standardized commit messages
-- ✅ **Code Quality**: Black, Flake8, MyPy, Pytest
-- ✅ **CI/CD**: GitHub Actions for automated testing
-- ✅ **Pre-commit Hooks**: Code quality checks before commit
-- ✅ **Documentation**: Comprehensive docs and docstrings
-- ✅ **Testing**: Unit, integration, and E2E tests
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow.
-
-### Project Structure
+- **Tests:** `pytest`
+- **Code quality:** Black, Flake8, MyPy (see [CONTRIBUTING.md](CONTRIBUTING.md))
 
 ```
 ContactAutomation/
-├── config/              # Configuration files
-│   ├── config.example.yaml  # Copy to config.yaml (gitignored)
-│   └── credentials.json     # OAuth tokens (gitignored)
-├── services/           # Core service modules
-│   ├── auth_service.py # OAuth authentication ✅
-│   ├── database_service.py # SQLite operations 🚧
-│   ├── google_drive_service.py # Drive API 🚧
-│   └── ...             # Other services
-├── templates/          # Email templates
-├── database/           # SQLite database files
-├── logs/              # Application logs
-├── docs/              # Documentation
-└── main.py            # CLI entry point
+├── config/           # config.example.yaml → config.yaml (add vault ID)
+├── services/         # Core logic (auth, drive, gmail, beats, email, db)
+├── templates/        # Email body + beat usage agreement
+├── scripts/          # send_beats_scheduled.bat, send_beats_test.bat
+├── docs/             # Setup and scheduling guides
+├── main.py           # CLI entry point
+└── requirements.txt
 ```
 
-### Tech Stack
+### Tech stack
 
 - **Python 3.8+**
 - **Google Drive API** - Access vault folder

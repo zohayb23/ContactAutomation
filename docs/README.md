@@ -1,13 +1,8 @@
 # Documentation
 
-This folder contains setup guides and documentation for the Contact Automation System.
-
-## Guides
-
-- [Google Cloud Setup Guide](GOOGLE_CLOUD_SETUP.md) - Step-by-step guide for setting up Google Cloud Project, APIs, and OAuth credentials
-
-## Quick Links
-
-- [Google Cloud Console](https://console.cloud.google.com/)
-- [Google Drive API Documentation](https://developers.google.com/drive/api/v3/about-sdk)
-- [Gmail API Documentation](https://developers.google.com/gmail/api/guides)
+| Guide | Description |
+|-------|-------------|
+| [GOOGLE_CLOUD_SETUP.md](GOOGLE_CLOUD_SETUP.md) | Google Cloud project, APIs, OAuth credentials |
+| [OAUTH_FIX.md](OAUTH_FIX.md) | OAuth troubleshooting |
+| [SCHEDULING.md](SCHEDULING.md) | Windows Task Scheduler setup |
+| [SEND_FREQUENCY_AND_MARKETING.md](SEND_FREQUENCY_AND_MARKETING.md) | Send cadence, beat format, Discord/LinkedIn copy |
